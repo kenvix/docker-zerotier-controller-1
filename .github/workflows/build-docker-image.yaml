@@ -1,16 +1,15 @@
 name: 'Build docker image'
 on: 
+  workflow_dispatch:
   # Auto build on push to main branch
   push:
     paths-ignore:
-      - “README.md”
+      - "README.md"
       - ".gitignore"
       - "LICENSE"
     branches:
       - main
-  # Auto build @ every Monday 6:00am
-  schedule:
-    - cron: '0 6 * * 1'
+  
 jobs:
   build:
     name: 'Build docker image'
@@ -47,5 +46,5 @@ jobs:
       with:
         context: .
         push: true
-        tags: sbilly/zerotier-controller:latest
+        tags: kenvix/zerotier-controller:latest
     
